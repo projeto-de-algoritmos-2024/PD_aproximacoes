@@ -1,21 +1,7 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
-
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
+# Aproximações
 
 **Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Conteúdo da Disciplina**: Programação Dinâmica <br>
 
 ## Alunos
 |Matrícula | Aluno |
@@ -24,7 +10,8 @@ Temas:
 | xx/xxxxxx  |  xxxx xxxx xxxxx |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto visa comparar de forma razoavelmente simples algoritmos de aproximação para
+problemas cujo ótimo é obtido por padrões de programação dinâmica.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
