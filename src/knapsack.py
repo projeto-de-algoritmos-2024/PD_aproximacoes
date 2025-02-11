@@ -1,6 +1,16 @@
 """
     Written by BCl0c, whose aproximation will take you most probably nowhere.
 
+    0. first steps
+        https://en.wikipedia.org/wiki/Knapsack_problem -> read this, pretty please.
+            Most of this algorithm approach is based on this wiki article.
+
+        next, take a look at the chapter 6 in the Tardos' algorithm design.
+        That's that. 
+
+        The book is not very didatic, but at least it provides some initial 
+        guiding light to constructing the algorithm.
+
     1. Introduction - the problem
         Given some max-weight and some items,
         what items should one take to optimize the
@@ -29,10 +39,13 @@
             fast too.
         
         2.3. Aproximation I - Greediest of rats
+            takes as much as possible of the most value per weight unit
+            rate and goes along like that. 
         
 """
 
 import random
+SEED = 123
 
 class item:
 
@@ -56,7 +69,7 @@ class item:
         return int(self.value/self.weight)
 
 
-def problemGenerator(n: int, max_weight, max_value, as_list = False, s = 123 ):
+def problemGenerator(n: int, max_weight, max_value, as_list = False, s = SEED ):
     """
         input: 
             n -> the number of items we plan to generate
@@ -83,7 +96,8 @@ def problemGenerator(n: int, max_weight, max_value, as_list = False, s = 123 ):
                     "s" stands for seed, of course.
 
                     A number used for the generator function.
-                    [DEFAULT]s to 123.
+                    [DEFAULT]s to 123 or, more specifically, the 
+                    SEED constant. 
 
         output: 
             Some list of items, unordered and with the n items specified.
@@ -102,18 +116,20 @@ def problemGenerator(n: int, max_weight, max_value, as_list = False, s = 123 ):
 
     #1. INIT
     items = []
-    generator = random()
+    generator = random
     #initializes with passed seed
     generator.seed(s)
 
     if as_list == True:
         for _ in range(n):
-            items.append([generator.randint(0, max_weight) , generator.randint(0, max_value)])
+            items.append([generator.randint(1, max_weight) , generator.randint(1, max_value)])
     else:
         for _ in range(n):
-            items.append(item(generator.randint(0, max_weight), generator.randint(0, max_value)))
+            items.append(item(generator.randint(1, max_weight), generator.randint(0, max_value)))
+    
+    return items
 
-def knapsackGR(items):
+def knapsackGR(items: list, weight):
     """
         knapsack algorithm GREED RAT version.
         
@@ -125,16 +141,79 @@ def knapsackGR(items):
         version. Not optimal in the very least,
         though.
 
+        That said, algorithm is as simple as it gets with the correct
+        data structures and methods.
+
     """
+
+    items.sort( key = lambda x : x[1]/x[0]) #this should sort the items by value/weight rate
+    took = []
+
+    #very retarded, very simple.
+    #its greed, after all, depends on the sorting you do.
+    for item in items:
+        if weight - item[0] < 0:
+            break
+        took.append(item)
+        weight -= item[0]
+    
+    return took
+            
     
 
-def knapsackDI(items):
+    
+
+def knapsackDI(items, weight):
     """
         Dynamic Iterative version.
         Creates the 2d matrix, initializes it,
         and runs. 
+
+        Much harder to implement 
     """
-    pass
+
+    # sort this sucker by value.
+    items.sort(key = lambda x: x[0])
+    # initialize our matrix
+    matrix = []
+    for _ in range(len(items) + 1):
+        matrix.append([0 for _ in range(weight + 1)]) #initialize matrix as all 0
+
+    #then, we process, ignoring the first line and column.
+    for i in range(1, len(matrix)):
+        for j in range(1, len(matrix[0])):
+            
+            pass            
+
+def knapsackPR(items, weight, took = []):
+    """
+        pure recursion. Will run terribly slow
+        compared to iterative or greedrat for 
+        big enough numbers. Not great.
+    """
+
+
+if __name__ == "__main__":
+    #""" TESTBATCH!
+    print("TEST 1: PROBLEM GENERATOR AND ITS CONSEQUENCES TO HUMANITY")
+    
+    print(problemGenerator(20, 20, 20, as_list=True))
+    print(problemGenerator(10, 10, 10))
+
+    print("TEST 2: KNAPSACK DI")
+    wares = problemGenerator(20,20,20, as_list= True)
+    knapsackDI(wares, 5)
+    knapsackDI(wares, 6)
+    knapsackDI(wares, 7)
+    knapsackDI(wares, 8)
+    knapsackDI(wares, 9)
+    knapsackDI(wares, 10)
+    #"""
+
+
+
+
+
 
 
 
