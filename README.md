@@ -17,15 +17,34 @@ problemas cujo ótimo é obtido por padrões de programação dinâmica.
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Python<br>
+### Scripts de teste de função
+Basta python. 
+  1. Clone o projeto
+  2. Rode os scripts desejados para testagem. Resultados devem diferir em velocidade por razões do hardware, especialmente a CPU.
+
+### Relatório
+Será necessário utilizar um compilador de documentos tex online ou local.
+
+  1. Clone o projeto
+  2. Rode o script .tex na pasta doc
+
+O resultado será um pdf com o relatório.
+
+Alternativamente, basta utilizar o pdf pré-compilado na pasta doc.
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+
+Cada script possui parâmetros específicos para sua rodagem. Após iniciar o 
+script de testagem desejado, insira os comandos como o script requer.
+
+Alguns scripts podem conter a rodagem 
 
 ## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+
+Caso deseje paralelizar os scripts, expandindo no trabalho já feito, tenha cautela
+com o uso de processos novos. Criar novos processos em determinadas situações pode
+crashar seu computador :).
 
 
 
