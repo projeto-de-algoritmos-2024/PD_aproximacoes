@@ -178,12 +178,23 @@ def knapsackDI(items, weight):
     matrix = []
     for _ in range(len(items) + 1):
         matrix.append([0 for _ in range(weight + 1)]) #initialize matrix as all 0
-
+    vec = []
     #then, we process, ignoring the first line and column.
     for i in range(1, len(matrix)):
+        this_item = items[i - 1]
         for j in range(1, len(matrix[0])):
-            
-            pass            
+            #don't take value is always top.
+            dt = matrix[i-1][j]
+            #can take needs further processing...
+
+            #if the remaining weight j - 1 is greater than 1, then
+            w_offset = j - this_item[0]
+            if  w_offset >= 0:
+                ct = this_item[1] + matrix[i-1][w_offset]
+            else:
+                ct = 0
+            matrix[i][j] = max([dt, ct])
+    
 
 def knapsackPR(items, weight, took = []):
     """
