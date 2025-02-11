@@ -6,8 +6,8 @@
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 22/1008436 | Ryan Augusto Brandão Salles |
+| 22/1008481 |   Víctor Moreira Almeida    |
 
 ## Sobre 
 O projeto visa comparar de forma razoavelmente simples algoritmos de aproximação para
