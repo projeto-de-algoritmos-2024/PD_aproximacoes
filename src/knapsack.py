@@ -47,29 +47,8 @@
 import random
 SEED = 123
 
-class item:
 
-    def __init__(self, w, v):
-        self.weight = w
-        self.value  = v
-    
-    def item_to_list(self):
-        """
-            returns item values as a dictionary
-        """
-
-        return { 'weight': self.weight , 'value':self.value }
-    
-    def get_item_rate(self):
-        """
-            returns a value/weight rate;
-            useful for greedy aproximation.
-        """
-
-        return int(self.value/self.weight)
-
-
-def problemGenerator(n: int, max_weight, max_value, as_list = False, s = SEED ):
+def problemGenerator(n: int, max_weight, max_value, s = SEED ):
     """
         input: 
             n -> the number of items we plan to generate
@@ -120,13 +99,9 @@ def problemGenerator(n: int, max_weight, max_value, as_list = False, s = SEED ):
     #initializes with passed seed
     generator.seed(s)
 
-    if as_list == True:
-        for _ in range(n):
-            items.append([generator.randint(1, max_weight) , generator.randint(1, max_value)])
-    else:
-        for _ in range(n):
-            items.append(item(generator.randint(1, max_weight), generator.randint(0, max_value)))
-    
+    for _ in range(n):
+        items.append([generator.randint(1, max_weight) , generator.randint(1, max_value)])
+   
     return items
 
 def knapsackGR(items: list, weight):
@@ -169,8 +144,29 @@ def knapsackDI(items, weight):
         Creates the 2d matrix, initializes it,
         and runs. 
 
-        Much harder to implement 
+        Much harder to implement compared to greed.
+        Greed also returns the set of items much faster, too.
+
+        In general, not useful for real time application. Very 
+        precise though.
+
+        Input:
+            items -> the list of items available
+            weight -> the max weight of the theoretical backpack
+
+        Output:
+            the set of items used.
     """
+    def finder():
+        """
+            function inside a function, of course, of course.
+
+            this is solely used to find the bothersome solution to the problem.
+            Input:
+                m -> the matrix we wish to
+        """
+        pass
+
 
     # sort this sucker by value.
     items.sort(key = lambda x: x[0])
@@ -194,6 +190,9 @@ def knapsackDI(items, weight):
             else:
                 ct = 0
             matrix[i][j] = max([dt, ct])
+    print("DEBUG")
+    
+    
     
 
 def knapsackPR(items, weight, took = []):
@@ -205,19 +204,15 @@ def knapsackPR(items, weight, took = []):
 
 
 if __name__ == "__main__":
-    #""" TESTBATCH!
+    """ TESTBATCH!
     print("TEST 1: PROBLEM GENERATOR AND ITS CONSEQUENCES TO HUMANITY")
     
     print(problemGenerator(20, 20, 20, as_list=True))
     print(problemGenerator(10, 10, 10))
-
+    """
+    #"""
     print("TEST 2: KNAPSACK DI")
-    wares = problemGenerator(20,20,20, as_list= True)
-    knapsackDI(wares, 5)
-    knapsackDI(wares, 6)
-    knapsackDI(wares, 7)
-    knapsackDI(wares, 8)
-    knapsackDI(wares, 9)
+    wares = problemGenerator(20,20,20)
     knapsackDI(wares, 10)
     #"""
 
