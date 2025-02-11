@@ -6,8 +6,8 @@
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 22/1008436 | Ryan Augusto Brandão Salles |
+| 22/1008481 |   Víctor Moreira Almeida    |
 
 ## Sobre 
 O projeto visa comparar de forma razoavelmente simples algoritmos de aproximação para
@@ -24,27 +24,26 @@ Basta python.
   2. Rode os scripts desejados para testagem. Resultados devem diferir em velocidade por razões do hardware, especialmente a CPU.
 
 ### Relatório
-Será necessário utilizar um compilador de documentos tex online ou local.
+Será necessário utilizar um compilador de documentos tex online ou local. Recomenda-se o overleaf
 
   1. Clone o projeto
-  2. Rode o script .tex na pasta doc
+  2. Rode o script .tex na pasta doc ou alternativamente carregue no overleaf e compile.
 
 O resultado será um pdf com o relatório.
 
 Alternativamente, basta utilizar o pdf pré-compilado na pasta doc.
 
 ## Uso 
+Esse é um projeto simples. Basta rodar o script na pasta src para obter os dados 
+de processamento. 
 
-Cada script possui parâmetros específicos para sua rodagem. Após iniciar o 
-script de testagem desejado, insira os comandos como o script requer.
-
-Alguns scripts podem conter a rodagem 
+Para ler sobre os resultados, acesse a pasta doc.
 
 ## Outros 
 
-Caso deseje paralelizar os scripts, expandindo no trabalho já feito, tenha cautela
-com o uso de processos novos. Criar novos processos em determinadas situações pode
-crashar seu computador :).
+JullietCharlieIndiaIndiaHotelNovember :) - Locvst 
+
+Caso deseje ou julgue necessário, favor sugerir formas de expandir o trabalho.
 
 
 
