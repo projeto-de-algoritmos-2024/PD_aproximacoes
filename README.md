@@ -44,6 +44,8 @@ Para ler sobre os resultados, acesse a pasta doc.
 JullietCharlieIndiaIndiaHotelNovember :) - Locvst 
 
 Caso deseje ou julgue necessário, favor sugerir formas de expandir o trabalho.
+Ademais, com 1mi itens, o algoritmo ótimo do knapsack quebra. O greed permanece intacto
+e gera resultados factíveis ao longo da execução. Greed is indeed GOOD :>>>
 
 
 
