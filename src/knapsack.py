@@ -123,7 +123,7 @@ def knapsackGR(items: list, weight):
 
     items.sort( key = lambda x : x[1]/x[0]) #this should sort the items by value/weight rate
     items.reverse()
-    print(items)
+    #print(items)
     took = []
 
     #very retarded, very simple.
@@ -183,8 +183,8 @@ def knapsackDI(items, weight):
                 ct = 0
             matrix[i][j] = max([dt, ct])
     # DEBUG
-    for line in matrix:
-        print(line)
+    #for line in matrix:
+    #    print(line)
 
     i = len(matrix) - 1
     j = len(matrix[0]) - 1
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     print(problemGenerator(20, 20, 20, as_list=True))
     print(problemGenerator(10, 10, 10))
     """
-    #"""
+    """
     print("TEST 2: KNAPSACK DI")
     wares = problemGenerator(20,20,20)
     wares.sort(key = lambda x: x[0])
@@ -220,7 +220,49 @@ if __name__ == "__main__":
 
     print("TEST 3: KNAPSACK GR")
     print(knapsackGR(wares, 20))
-    #"""
+    """
+    import timeit
+    import random
+
+    print("STARTING theVERYgreat TEST ROUTINE!")
+    try:
+        a = int(input("Give n: "))
+    except:
+        print("not int. quiting")
+        quit()
+
+    b = a
+    print("generating items")
+    items = problemGenerator(a, a, a, b)
+    print("generation done.")
+    print("---------------------------")
+    print("starting knapsack greedyrat version!")
+    start = timeit.default_timer()
+    res_aprox = knapsackGR(items, a)
+    stop = timeit.default_timer()
+    time = stop-start
+    print(f'GREEDY TOOK {time} SECONDS.')
+    print("---------------------------")
+    print("starting knapsack iterative optimal version!")
+    start = timeit.default_timer()
+    res_opt = knapsackDI(items, a)
+    stop = timeit.default_timer()
+    time = stop-start
+    print(f'ITERATIVE OPTIMAL TOOK {time} SECONDS.')
+    sum_aprox = 0
+    sum_opt = 0
+    for i in res_aprox:
+        sum_aprox += i[1]
+    for i in res_opt:
+        sum_opt += i[1]
+
+    print(f'ITERATIVE RESULT {sum_opt}')
+    print(f'GREEDY RESULT {sum_aprox}')
+    
+    print("finished...")
+
+
+
 
 
 
