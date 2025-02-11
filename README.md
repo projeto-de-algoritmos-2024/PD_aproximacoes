@@ -43,6 +43,8 @@ Para ler sobre os resultados, acesse a pasta doc.
 
 JullietCharlieIndiaIndiaHotelNovember :) - Locvst 
 
+Caso deseje ou julgue necessário, favor sugerir formas de expandir o trabalho.
+
 
 
 
