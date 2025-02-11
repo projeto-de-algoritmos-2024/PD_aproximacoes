@@ -122,13 +122,15 @@ def knapsackGR(items: list, weight):
     """
 
     items.sort( key = lambda x : x[1]/x[0]) #this should sort the items by value/weight rate
+    items.reverse()
+    print(items)
     took = []
 
     #very retarded, very simple.
     #its greed, after all, depends on the sorting you do.
     for item in items:
         if weight - item[0] < 0:
-            break
+            continue
         took.append(item)
         weight -= item[0]
     
@@ -157,16 +159,6 @@ def knapsackDI(items, weight):
         Output:
             the set of items used.
     """
-    def finder():
-        """
-            function inside a function, of course, of course.
-
-            this is solely used to find the bothersome solution to the problem.
-            Input:
-                m -> the matrix we wish to
-        """
-        pass
-
 
     # sort this sucker by value.
     items.sort(key = lambda x: x[0])
@@ -190,17 +182,26 @@ def knapsackDI(items, weight):
             else:
                 ct = 0
             matrix[i][j] = max([dt, ct])
-    print("DEBUG")
-    
-    
-    
+    # DEBUG
+    for line in matrix:
+        print(line)
 
-def knapsackPR(items, weight, took = []):
-    """
-        pure recursion. Will run terribly slow
-        compared to iterative or greedrat for 
-        big enough numbers. Not great.
-    """
+    i = len(matrix) - 1
+    j = len(matrix[0]) - 1
+    res = []
+    while matrix[i][j] != 0:
+        #meaning it took the item
+        if matrix[i][j] > matrix[i-1][j]:
+            #then, append it to res, 
+            res.append(items[i - 1])
+            #go to next item
+            i -= 1 
+            #and subtract available weight
+            j -= items[i][0]
+        else:
+            #else we go up.
+            i -= 1 
+    return res
 
 
 if __name__ == "__main__":
@@ -213,7 +214,12 @@ if __name__ == "__main__":
     #"""
     print("TEST 2: KNAPSACK DI")
     wares = problemGenerator(20,20,20)
-    knapsackDI(wares, 10)
+    wares.sort(key = lambda x: x[0])
+    print(wares)
+    print(knapsackDI(wares, 20))
+
+    print("TEST 3: KNAPSACK GR")
+    print(knapsackGR(wares, 20))
     #"""
 
 
