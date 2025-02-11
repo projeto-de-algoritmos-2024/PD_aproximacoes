@@ -256,8 +256,9 @@ if __name__ == "__main__":
     for i in res_opt:
         sum_opt += i[1]
 
-    print(f'ITERATIVE RESULT {sum_opt}')
-    print(f'GREEDY RESULT {sum_aprox}')
+    print(f'ITERATIVE RESULT -> {sum_opt}')
+    print(f'GREEDY RESULT -> {sum_aprox}')
+    print(f'GREEDY APROXIMATION RATE: {sum_aprox/sum_opt}')
     
     print("finished...")
 
