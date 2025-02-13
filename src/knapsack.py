@@ -203,6 +203,63 @@ def knapsackDI(items, weight):
             i -= 1 
     return res
 
+def run_comparison(n: int):
+    """
+        tests greedy and optimum algorithm. Do not pass
+        a very big n if you don't plan on testing the TLE of
+        the optimum. It will alocate pretty much all memory available
+        and it will crash the script.
+
+        input:
+            n -> the number of items to generate
+        output:
+            a list containing:
+                time of execution for the Greedy
+                time of execution for the Optimal
+                aproximation rate
+            IN THIS ORDER.
+    
+    """
+    import timeit
+    import random
+
+    print("STARTING theVERYgreat TEST ROUTINE!")
+    try:
+        a = int(n)
+    except ValueError:
+        print("not int. quiting")
+        quit()
+    b = a
+    #print("generating items")
+    items = problemGenerator(a, a, a, b)
+    #print("generation done.")
+    #print("---------------------------")
+    #print("starting knapsack greedyrat version!")
+    start = timeit.default_timer()
+    res_aprox = knapsackGR(items, a)
+    stop = timeit.default_timer()
+    time_greed = stop-start
+    #print(f'GREEDY TOOK {time} SECONDS.')
+    #print("---------------------------")
+    #print("starting knapsack iterative optimal version!")
+    start = timeit.default_timer()
+    res_opt = knapsackDI(items, a)
+    stop = timeit.default_timer()
+    time_opt = stop-start
+    #print(f'ITERATIVE OPTIMAL TOOK {time} SECONDS.')
+    sum_aprox = 0
+    sum_opt = 0
+    for i in res_aprox:
+        sum_aprox += i[1]
+    for i in res_opt:
+        sum_opt += i[1]
+
+    #print(f'ITERATIVE RESULT -> {sum_opt}')
+    #print(f'GREEDY RESULT -> {sum_aprox}')
+    #print(f'GREEDY APROXIMATION RATE: {sum_aprox/sum_opt}')
+    aprox_rate = sum_aprox/sum_opt
+
+    return [time_greed, time_opt, aprox_rate]
 
 if __name__ == "__main__":
     """ TESTBATCH!
@@ -221,44 +278,12 @@ if __name__ == "__main__":
     print("TEST 3: KNAPSACK GR")
     print(knapsackGR(wares, 20))
     """
-    import timeit
-    import random
+    import matplotlib.pyplot as plt
 
-    print("STARTING theVERYgreat TEST ROUTINE!")
-    try:
-        a = int(input("Give n: "))
-    except:
-        print("not int. quiting")
-        quit()
+    print("STARTING EXECUTION OF THE COMPARISON ROUTINE!")
+    number_of_items = []
+    
 
-    b = a
-    print("generating items")
-    items = problemGenerator(a, a, a, b)
-    print("generation done.")
-    print("---------------------------")
-    print("starting knapsack greedyrat version!")
-    start = timeit.default_timer()
-    res_aprox = knapsackGR(items, a)
-    stop = timeit.default_timer()
-    time = stop-start
-    print(f'GREEDY TOOK {time} SECONDS.')
-    print("---------------------------")
-    print("starting knapsack iterative optimal version!")
-    start = timeit.default_timer()
-    res_opt = knapsackDI(items, a)
-    stop = timeit.default_timer()
-    time = stop-start
-    print(f'ITERATIVE OPTIMAL TOOK {time} SECONDS.')
-    sum_aprox = 0
-    sum_opt = 0
-    for i in res_aprox:
-        sum_aprox += i[1]
-    for i in res_opt:
-        sum_opt += i[1]
-
-    print(f'ITERATIVE RESULT -> {sum_opt}')
-    print(f'GREEDY RESULT -> {sum_aprox}')
-    print(f'GREEDY APROXIMATION RATE: {sum_aprox/sum_opt}')
     
     print("finished...")
 
