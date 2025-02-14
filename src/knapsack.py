@@ -47,6 +47,9 @@
 import random
 SEED = 123
 
+TESTING_RANGE = 10000
+TESTING_STEP = 10
+
 
 def problemGenerator(n: int, max_weight, max_value, s = SEED ):
     """
@@ -203,7 +206,7 @@ def knapsackDI(items, weight):
             i -= 1 
     return res
 
-def run_comparison(n: int):
+def run_comparison(n: int) -> list:
     """
         tests greedy and optimum algorithm. Do not pass
         a very big n if you don't plan on testing the TLE of
@@ -223,7 +226,8 @@ def run_comparison(n: int):
     import timeit
     import random
 
-    print("STARTING theVERYgreat TEST ROUTINE!")
+    print(f'running comparison for n = {n}')
+
     try:
         a = int(n)
     except ValueError:
@@ -279,12 +283,39 @@ if __name__ == "__main__":
     print(knapsackGR(wares, 20))
     """
     import matplotlib.pyplot as plt
-
+    import gc
     print("STARTING EXECUTION OF THE COMPARISON ROUTINE!")
     number_of_items = []
-    
+    greed_times = []
+    opt_times = []
+    aprox_rates = []
+    zetta: list
+    for i in range(10, TESTING_RANGE, TESTING_STEP):
+        number_of_items.append(i)
+        zetta =  run_comparison(i)
+        greed_times.append(zetta[0])
+        opt_times.append(zetta[1])
+        aprox_rates.append(zetta[2])
 
-    
+    fig, ax = plt.subplots(ncols=2, figsize = (10,10), layout = "constrained")
+    curve_greed = ax[0].plot(number_of_items, greed_times, label = "Greed Time Curve")
+    curve_opt   = ax[0].plot(number_of_items, opt_times, label = "Dynamic Time Curve")
+    curve_rate  = ax[1].plot(number_of_items, aprox_rates, label =  "Aproximation rate Greed/Optimal")
+
+
+    ax[0].set_xlabel('Number of Items')
+    ax[0].set_ylabel('Time')
+    ax[0].set_title('Time Curve Comparison')
+
+    ax[1].set_ylim([0, 1.5])
+    ax[1].set_xlabel('Number of Items')
+    ax[1].set_ylabel('Aproximation Rate')
+    ax[1].set_title('Aproximation Rates')
+
+    ax[0].legend()
+    ax[1].legend()
+    plt.show()
+
     print("finished...")
 
 
