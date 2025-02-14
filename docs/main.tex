@@ -104,10 +104,10 @@
     Utilizaremos a biblioteca time para obter o tempo de execução do algoritmo e um vetor de pares peso-valor, denominado item, gerado durante a execução que utilizará a biblioteca random. Os testes serão os seguintes:
         \begin{enumerate}
             \item 10 itens com 10 de peso máximo na mochila gerados com seed 10
-            \item 100 itens com 100 de peso máximo na mochila gerados com seed 100
-            \item 1000 itens com 1000 de peso máximo na mochila gerados com seed 1000
+            \item 110 itens com 20 de peso máximo na mochila gerados com seed 110
+            \item 210 itens com 30 de peso máximo na mochila gerados com seed 210
         \end{enumerate}
-    E assim por diante, aumentando progressivamente o conjunto de dados e a seed por um fator de 10. Caso o algoritmo demore mais que 30 segundos para executar, ele será considerado muito lento e sua execução será terminada. Portanto, 30 segundos de espera é a condição para time limit exceeded (TLE).
+    E assim por diante, aumentando progressivamente o conjunto de dados e a seed por um fator de 100 com a finalização da execução ocorrendo com 9910 itens.
     
     \section{Algoritmos}\label{algoritmos}
     Nesse tópico, serão brevemente explicados os algoritmos implementados, seu funcionamento, objetivo e estratégia de resolução do problema.
@@ -141,13 +141,24 @@
     Ademais, apesar de rodar em diferentes hardwares, é também esperado que os algoritmos apresentem curvas de tempo similares, dado a complexidade necessária para rodá-los.
 
     \subsection{Dell G15}
+        \includegraphics[scale = .3]{images/Figure_1.png}\label{Dell g15 execution}
+
+        Como podemos observar, o algoritmo dinâmico possui um crescimento exponencial para esse caso de teste, muito em razão do crescimento da curva para esse caso de teste um tanto limítrofe, considerando que a matriz de operações a serem realizadas acaba crescendo em $O(n^2)$ em razão da forma como realizamos os testes, sempre n itens e n peso máximo.\\
+        A taxa de aproximação permanece aproximadamente constante, confortavelmente próxima de 1.\\
+        Uma anomalia nesses dados obtidos pode ser observada em cerca de 6000 itens e 8000 itens, com a execução tomando muito muito mais tempo que o normal. Isso pode talvez ser explicado pelo aquecimento do hardware de testes, mas é incerto o que causou esse súbito aumento no tempo de rodagem. \\
+        
     \subsection{SteamDeck}
+        \includegraphics[scale = 0.45]{images/Figure_2.png}\label{SteamDeck execution}
+        
+        Assim como no teste anterior, o algoritmo dinâmico cresce em $O(n^2)$, e a taxa de aproximação continua aproximadamente constante e próxima de 1.\\
+        O tempo do dinâmico, por conta do processamento mais lento do processador em modo single core, acaba ultrapassando marca de um minuto.\\
 
 \section{Conclusão}
     O algoritmo dinâmico, apesar de ótimo, apresentou crescimento do consumo de memória e tempo altamente superiores ao algoritmo de aproximação ganancioso. Isso demonstra certas vantagens e desvantagens sobre as famílias de algoritmo.\\
     Algoritmos dinâmicos são ideais para computação científica e certas aplicações financeiras logísticas, especialmente envolvendo transporte de recursos, mas podem apresentar um tempo de execução elevado e um consumo de memória impraticável para um hardware limitado ou antigo.\\
     Aproximar tais algoritmos pode ser ideal para situações onde uma resposta rápida é necessária ou no mínimo ideal, especialmente para aplicações de tempo real, como já citado, jogos eletrônicos, onde determinados algoritmos têm não mais que o tempo de um frame para retornar uma resposta e protelar a resposta impacta diretamente na usabilidade do software.\\
     Ademais, devido às restrições de data limite para a entrega desse relatório, outros algoritmos poderiam ter sido implementados e a rodagem de tais algoritmos poderia ter se beneficiado de uma gama maior de sistemas operacionais testados em outros hardwares. Caso o leitor busque expandir no curto trabalho aqui feito, esse seria um excelente começo.\\
+    Outras formas de expandir o trabalho seria ao implementar outros tipos de aproximação ou otimizações ao algoritmo ótimo, observado que esse relatório é um tanto curto nesse quesito.
     No mais, a dupla agradece a leitura. 
 % amongus sussy baka >:3 
 % ඞ
