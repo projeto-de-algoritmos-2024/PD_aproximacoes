@@ -16,7 +16,16 @@ problemas cujo ótimo é obtido por padrões de programação dinâmica.
 [link para o relatório no overleaf](https://www.overleaf.com/read/fvdhzpmtybxf#0b1e2b)
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+### Gráfico de execução do algoritmo para o Dell G15:
+
+![Dell G15 execution](https://raw.githubusercontent.com/projeto-de-algoritmos-2024/PD_aproximacoes/refs/heads/master/docs/images/Figure_1.png)
+
+### Gráfico de execução do algoritmo para o SteamDeck:
+![SteamDeck execution](https://raw.githubusercontent.com/projeto-de-algoritmos-2024/PD_aproximacoes/refs/heads/master/docs/images/Figure_2.png)
+
+### O glorioso algoritmo:
+![algorithm in its glory](https://raw.githubusercontent.com/projeto-de-algoritmos-2024/PD_aproximacoes/refs/heads/master/docs/images/thealgor.png)
 
 ## Instalação 
 **Linguagem**: Python<br>
