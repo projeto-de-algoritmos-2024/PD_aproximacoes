@@ -48,7 +48,7 @@ import random
 SEED = 123
 
 TESTING_RANGE = 10000
-TESTING_STEP = 10
+TESTING_STEP = 100
 
 
 def problemGenerator(n: int, max_weight, max_value, s = SEED ):
