@@ -13,6 +13,8 @@
 O projeto visa comparar de forma razoavelmente simples algoritmos de aproximação para
 problemas cujo ótimo é obtido por padrões de programação dinâmica.
 
+[link para o relatório no overleaf](https://www.overleaf.com/read/fvdhzpmtybxf#0b1e2b)
+
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
@@ -33,7 +35,7 @@ Será necessário utilizar um compilador de documentos tex online ou local. Reco
 
 O resultado será um pdf com o relatório.
 
-Alternativamente, basta utilizar o pdf pré-compilado na pasta doc.
+Alternativamente, basta utilizar o pdf pré-compilado na pasta doc ou entrar no link do projeto!
 
 ## Uso 
 Esse é um projeto simples. Basta rodar o script na pasta src para obter os dados 
